@@ -5,6 +5,9 @@
   "repository": "https://github.com/heroku/python-getting-started",
   "keywords": ["python", "flask", "gunicorn"],
   "env": {
+    "PLACEHOLDER": {
+      "description": "This number does nothing at present",
+      "value": "5"    }
 
   }
 }
