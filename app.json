@@ -3,11 +3,5 @@
   "description": "A barebones Python app, which can easily be deployed to Heroku with gunicorn / flask.",
   "image": "heroku/python",
   "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "flask", "gunicorn"],
-  "env": {
-    "PLACEHOLDER": {
-      "description": "This number does nothing at present",
-      "value": "5"    }
-
-  }
+  "keywords": ["python", "flask", "gunicorn"]
 }
