@@ -1,6 +1,6 @@
 {
   "name": "Hello World in Python on Heroku / Flask",
-  "description": "A barebones Python app, which can easily be deployed to Heroku with gunicorn / flask.",
+  "description": "Barebones Python microservice using Flask and Gunicorn on Heroku.",
   "image": "heroku/python",
   "repository": "https://github.com/tuck1s/hello-python-heroku.git",
   "logo": "https://github.com/tuck1s/hello-python-heroku/blob/master/SparkPost_App-Icon_180x180.png",
