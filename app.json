@@ -2,6 +2,7 @@
   "name": "Hello World in Python on Heroku / Flask",
   "description": "A barebones Python app, which can easily be deployed to Heroku with gunicorn / flask.",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "flask", "gunicorn"]
+  "repository": "https://github.com/tuck1s/hello-python-heroku.git",
+  "website": "https://developers.sparkpost.com",
+  "keywords": ["python", "flask", "gunicorn", "SparkPost"]
 }
