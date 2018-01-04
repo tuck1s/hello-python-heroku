@@ -21,9 +21,9 @@ def handle_all(path):
             r['headers'].update({i[0]:i[1]})
 
     res = requests.request(method=r['method'], url='https://api.sparkpost.com/'+path, params=r['args'], headers=r['headers'], data=r['data'])
-    t = res.text
-    e = res.status_code
-    return make_response(t, e)
+    response = make_response(res.text, res.status_code)
+    response.headers['Content-Type'] =  'application/json'
+    return response
 
 
 # Start the app
