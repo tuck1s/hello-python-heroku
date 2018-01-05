@@ -1,4 +1,4 @@
-# Python: Hello World
+# Simple SparkPost Proxy
 
 A barebones app, which can easily be deployed to Heroku, using Flask / Gunicorn.
 
