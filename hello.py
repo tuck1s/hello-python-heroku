@@ -8,21 +8,18 @@ app = Flask(__name__)
 @app.route('/', defaults={'path': ''},  methods = ['GET', 'POST', 'PUT', 'DELETE'])
 @app.route('/<path:path>', methods = ['GET', 'POST', 'PUT', 'DELETE'])
 def handle_all(path):
-    print(request.method, path)
     try:
         host = os.environ["SPARKPOST_HOST"]
     except:
         host='https://api.sparkpost.com/'
-    if not host.endswith('/'):
-        host += '/'
 
     # Copy across selected headers when making the request in to SparkPost.  Content-Length, Host deliberately not copied.
     reqHeaders = {}
     for i in request.headers:
-        if i[0] in ['Authorization', 'Content-Type', 'Accept', 'Accept-Encoding', 'Connection', 'Transfer-Encoding']:
+        if i[0] not in ['Content-Length', 'Host']:
             reqHeaders[i[0]] = i[1]
     fullUrl = host + path
-    print('SparkPost request:', request.method, fullUrl, end='')
+    print('Making outgoing request:', request.method, fullUrl, end='')
     if request.args:
         print(' Args: ', end='')
         pprint(request.args)
@@ -31,6 +28,7 @@ def handle_all(path):
     print('body len =', len(request.data))
 
     sparkyResponse = requests.request(request.method, url=fullUrl, params=request.args, headers=reqHeaders, data=request.data)
+
     clientResponse = make_response(sparkyResponse.content, sparkyResponse.status_code)
     # Copy back headers from SparkPost response.  Don't copy certain headers that will be set by Flask response handler.
     for k, v in sparkyResponse.headers.items():
