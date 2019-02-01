@@ -1,6 +1,7 @@
 from flask import Flask, request, Response, make_response
 import json, requests, os
 from pprint import pprint
+from requests.compat import urljoin
 app = Flask(__name__)
 #
 # Flask entry points
@@ -18,7 +19,7 @@ def handle_all(path):
     for i in request.headers:
         if i[0] not in ['Content-Length', 'Host']:
             reqHeaders[i[0]] = i[1]
-    fullUrl = host + path
+    fullUrl = urljoin(host, path)
     print('Making outgoing request:', request.method, fullUrl, end='')
     if request.args:
         print(' Args: ', end='')
